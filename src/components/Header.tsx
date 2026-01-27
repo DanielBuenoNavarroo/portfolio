@@ -1,17 +1,26 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/constants";
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
-      <Image
-        src="/assets/profile-img.png"
-        alt=""
-        className="rounded-full w-32"
-        width={100}
-        height={100}
-      />
-      <h3 className="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
+      <motion.div {...fadeUp()}>
+        <Image
+          src="/assets/dani-2026.webp"
+          alt=""
+          className="rounded-full w-32"
+          width={128}
+          height={128}
+        />
+      </motion.div>
+      <motion.h3
+        className="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo"
+        {...fadeUp({ delay: 0.1 })}
+      >
         Hi! I&apos;m Daniel Bueno
         <Image
           src="/assets/hand-icon.png"
@@ -20,16 +29,25 @@ export const Header = () => {
           width={100}
           height={100}
         />
-      </h3>
-      <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+      </motion.h3>
+      <motion.h1
+        className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo"
+        {...fadeUp({ delay: 0.2 })}
+      >
         Web developer based in Madrid.
-      </h1>
-      <p className="max-w-2xl mx-auto font-Ovo">
+      </motion.h1>
+      <motion.p
+        className="max-w-2xl mx-auto font-Ovo"
+        {...fadeUp({ delay: 0.3 })}
+      >
         I am a junior web developer from Madrid, Spain with 1 year of
         experience.
-      </p>
+      </motion.p>
 
-      <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
+      <motion.div
+        className="flex flex-col sm:flex-row items-center gap-4 mt-4"
+        {...fadeUp({ delay: 0.4 })}
+      >
         <Link
           href="#contact"
           className="w-48 px-10 py-2.5 border rounded-full bg-linear-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center justify-center gap-2 dark:border-transparent group"
@@ -58,7 +76,9 @@ export const Header = () => {
             height={100}
           />
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };
+
+export default Header;

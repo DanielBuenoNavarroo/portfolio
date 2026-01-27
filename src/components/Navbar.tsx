@@ -3,10 +3,12 @@
 import { Links } from "@/lib/constants";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion";
+
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const { setTheme, theme } = useTheme();
@@ -73,15 +75,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
       ref={navRef}
       className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
     >
       <Link href="/">
         <Image
           src="/pandaIcon.svg"
           alt="Logo"
-          className="w-24 cursor-pointer mr-14 border-b-4 dark:border-slate-600 rounded-full"
+          className="w-24 cursor-pointer mr-14 border-b-4 border-slate-800 dark:border-slate-600 rounded-full"
           width={100}
           height={100}
         />
@@ -179,7 +185,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 };
 
