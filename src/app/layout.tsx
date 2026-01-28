@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit, Ovo } from "next/font/google";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import "./globals.css";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -46,12 +47,13 @@ export default function RootLayout({
       <body className={`${outfit.variable} ${ovo.variable} antialiased`}>
         <ThemeProvider
           attribute={"class"}
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
