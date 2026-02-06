@@ -36,7 +36,7 @@ const About = () => {
                   refs.current[i] = el;
                 }}
                 {...fadeUp({ delay: 0.1 + i * 0.1 })}
-                key={i}
+                key={data.name}
                 onAnimationComplete={() => {
                   const card = refs.current[i];
                   if (card) {
@@ -53,26 +53,28 @@ const About = () => {
                 }}
                 className="border not-dark:bg-white/40 border-gray-300 dark:border-white/30 rounded-xl p-6 cursor-pointer"
               >
-                <Image
-                  src={data.icon1}
-                  alt=""
-                  className="w-7 mt-3 dark:hidden"
-                  width={100}
-                  height={100}
-                />
-                <Image
-                  src={data.icon2}
-                  alt=""
-                  className="w-7 mt-3 hidden dark:block"
-                  width={100}
-                  height={100}
-                />
-                <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
-                  {data.name}
-                </h3>
-                <p className="text-gray-600 text-sm dark:text-white/80">
-                  {data.description}
-                </p>
+                <>
+                  <Image
+                    src={data.icon1}
+                    alt=""
+                    className="w-7 mt-3 dark:hidden"
+                    width={100}
+                    height={100}
+                  />
+                  <Image
+                    src={data.icon2}
+                    alt=""
+                    className="w-7 mt-3 hidden dark:block"
+                    width={100}
+                    height={100}
+                  />
+                  <h3 className="my-4 font-semibold text-gray-700 dark:text-white">
+                    {data.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm dark:text-white/80">
+                    {data.description}
+                  </p>
+                </>
               </motion.li>
             ))}
           </ul>

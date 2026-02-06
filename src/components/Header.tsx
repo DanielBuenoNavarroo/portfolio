@@ -4,8 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/constants";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const Header = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      toast.warning("WIP", {
+        description: "This website is still in construccion...",
+        duration: 10000,
+      });
+    }, 100);
+  }, []);
   return (
     <div className="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
       <motion.div {...fadeUp()}>

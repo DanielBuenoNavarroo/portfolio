@@ -3,6 +3,7 @@ import { Outfit, Ovo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster richColors />
         </ThemeProvider>
         <Analytics />
       </body>
